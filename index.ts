@@ -23,21 +23,18 @@ const startServer = async () => {
     },
   };
 
-  // 5
   const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
   })
 
-  // 6
   await apolloServer.start()
 
-  // 7
-  apolloServer.applyMiddleware({
-      app
-  })
 
-  // 8
+  apolloServer.applyMiddleware({
+      app,
+      path: '/api'
+  })
   httpServer.listen({ port: process.env.PORT || 4000 }, () =>
     console.log(`Server listening on localhost:4000${apolloServer.graphqlPath}`)
   )
