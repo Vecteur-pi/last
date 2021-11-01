@@ -35,7 +35,7 @@ const startServer = async () => {
   // 7
   apolloServer.applyMiddleware({
       app,
-      path: '/'
+      path: '/api'
   })
 
   // 8
